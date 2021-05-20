@@ -1,0 +1,6 @@
+{
+  "connect_info" : "rabbitmq test 정보",
+  "ip" : "localhost",
+  "port": "3300"
+
+}
