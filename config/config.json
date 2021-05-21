@@ -1,6 +1,8 @@
 {
   "connect_info" : "rabbitmq test 정보",
   "ip" : "localhost",
-  "port": "3300"
+  "port": "3300",
+  "RABBITMQ_IP" : "localhost",
+  "RABBITMQ_PORT" : "15672"
 
 }

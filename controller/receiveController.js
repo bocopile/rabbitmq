@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const amqp = require('amqplib');
 
-const url = 'amqp://{{rabbitMQ_URL}}:{{PORT}}';
+const url = `amqp://{{RABBITMQ_URL}}:{{PORT}}`;
 const queueName = 'MQ_test';
 
 

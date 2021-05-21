@@ -4,8 +4,9 @@ const amqp = require('amqplib');
 
 const log = require('./config/winston');
 
-const url = `amqp://{{RABBITMQ_IP}}:{{RABBITMQ_PORT}}`;
+const url = `amqp://{{RABBITMQ_URL}}:{{PORT}}`;
 const queueName = 'MQ_test';
+
 
 
 router.post('/massage', function(req,res){
