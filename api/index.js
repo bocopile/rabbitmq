@@ -1,14 +1,15 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
+const receive = require('../controller/receiveController');
+const send = require('../controller/sendController');
 
-router.get('/test/in/:user_id', function (req,res){
+router.use('/receive',receive);
+router.use('/send',send);
 
+router.get('/', function(req, res){
+    res.send('Main Page');
 });
 
 
-
-router.get('/test/out/:user_id', function (req,res){
-
-});
-
+module.exports = router;
