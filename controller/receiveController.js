@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const amqp = require('amqplib');
 
-const url = `amqp://{{RABBITMQ_URL}}:{{PORT}}`;
+const log = require('../config/winston');
+
+const url = `amqp://{{RABBITMQ_ID}}:{{RABBITMQ_PW}}@{{{RABBITMQ_URL}}:{{PORT}}`;
 const queueName = 'MQ_test';
 
 
@@ -11,12 +13,12 @@ router.post('/massage', function(req,res){
     const massage = req.params.massage;
     amqp.connect(url, function(error, connect){
         if(error){
-            console.log(error);
+            log.error(error);
             return;
         }
-        connect.createChannel(function(error, channel){
-            if(error){
-                console.log(error);
+        connect.createChannel(function(error2, channel){
+            if(error2){
+                log.error(error2);
                 return;
             }
             channel.assertQueue(queueName, {durable: true}, function(error){
